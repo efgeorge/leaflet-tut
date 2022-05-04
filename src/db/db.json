@@ -1,0 +1,22 @@
+{
+  "home": [
+    {
+      "id": 1,
+      "latlng": [44.4841215, 26.0210139]
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "latlng": [44.4912308, 26.032544],
+      "name": "Lidl",
+      "desc": "unde se fac cumparaturile" 
+    },
+    {
+      "id": 2,
+      "latlng": [44.4867397, 26.0381333],
+      "name": "Ing",
+      "desc": "unde se iau bani" 
+    }
+  ]
+}
