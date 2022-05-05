@@ -34,7 +34,7 @@ const Map = ({ locations }) => {
             Km 0 al smecheriei
           </Popup>
        </Marker>
-       {locations.map((location) => (
+       {Object.keys(locations).map((location) => (
          <Marker position={(location.latlng)}>
            <Popup>La {(latLng(position).distanceTo(latLng(location.latlng)))} km fata de km 0</Popup>
          </Marker>

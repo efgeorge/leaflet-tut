@@ -3,7 +3,7 @@ import apiRequest from "./apiRequest";
 import { useState, useEffect } from 'react';
 
 function App() {
-  const API_URL = "http://localhost:3500"
+  const API_URL = "http://localhost:3500/locations"
 
   const [locations, setLocations] = useState([])
   const [fetchError, setFetchError] = useState(null);
@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const response = await fetch(`${API_URL}/locations`);
+        const response = await fetch(API_URL);
         if (!response.ok) throw Error('Did not receive expected data');
         const listLocations = await response.json();
         setLocations(listLocations);
