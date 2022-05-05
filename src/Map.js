@@ -24,7 +24,7 @@ const Map = ({ locations }) => {
   
   return (
     <div className="leaflet-container">
-      <MapContainer center={position} zoom={17} scrollWheelZoom={false}>
+      <MapContainer center={position} zoom={17} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -34,7 +34,7 @@ const Map = ({ locations }) => {
             Km 0 al smecheriei
           </Popup>
        </Marker>
-       {Object.keys(locations).map((location) => (
+       {Object.entries(locations).map((location) => (
          <Marker position={(location.latlng)}>
            <Popup>La {(latLng(position).distanceTo(latLng(location.latlng)))} km fata de km 0</Popup>
          </Marker>
