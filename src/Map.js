@@ -16,15 +16,13 @@ import {
 import leaflet, { latLng, point } from 'leaflet';
 // import LocationMarker from "./LocationMarker"
 
-const Map = ({ locations }) => {
+const Map = ({ home, locations }) => {
 
-  const position = [44.4841215, 26.0210139];
-  const lidl = [44.4912308, 26.032544];
+  const position = home?.latlng;
 
-  
   return (
     <div className="leaflet-container">
-      <MapContainer center={position} zoom={17} scrollWheelZoom={true}>
+      <MapContainer center={position} zoom={14} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -34,9 +32,9 @@ const Map = ({ locations }) => {
             Km 0 al smecheriei
           </Popup>
        </Marker>
-       {Object.entries(locations).map((location) => (
-         <Marker position={(location.latlng)}>
-           <Popup>La {(latLng(position).distanceTo(latLng(location.latlng)))} km fata de km 0</Popup>
+       {locations.map((location) => (
+         <Marker position={(location.latlng)} key={location.id}>
+           <Popup>La {(latLng(position).distanceTo(latLng(location.latlng)).toFixed(0)/1000)} km fata de km 0</Popup>
          </Marker>
        ))}
        {/* <Marker position={lidl}>
