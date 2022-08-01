@@ -2,6 +2,7 @@ import Map from "./Map";
 import apiRequest from "./apiRequest";
 import { useState, useEffect } from 'react';
 import SearchLocation from "./SearchLocation";
+import List from "./List";
 
 function App() {
   const API_URL = "http://localhost:3500/db"
@@ -38,8 +39,7 @@ function App() {
         <div className="map-container">
           {isLoading && <p>Loading map...</p>}
           {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
-          {!fetchError && !isLoading && <Map home={home} locations={locations.filter((location) =>
-            location.name.toLowerCase().includes(search.toLowerCase()))} />}
+          {!fetchError && !isLoading && <Map search={search} home={home} locations={locations} />}
         </div>
       </main>
     </div>
